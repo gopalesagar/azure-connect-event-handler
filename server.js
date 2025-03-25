@@ -1,17 +1,10 @@
 const express = require('express');
-const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 const { WebPubSubEventHandler } = require('@azure/web-pubsub-express');
-const { Sequelize, DataTypes } = require('sequelize');
-const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const app = express();
 const hubName = 'inveniamqahub';
 const port = 8080;
-const JWT_SECRET = 'secret';
-const WSS_URL = 'wss://dev-poc-websocket-inveniam.webpubsub.azure.com/client/hubs';
-const connectionString = process.env.WebPubSubConnectionString || 'dev-poc-websocket-inveniam.webpubsub.azure.com';
-const serviceClient = new WebPubSubServiceClient(connectionString, hubName);
 
 // Initialize Sequelize
 // const sequelize = new Sequelize({
